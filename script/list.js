@@ -15,6 +15,10 @@ function loadList() {
 
             var playerList = players.list;
 
+            if (playerList.length == 0) {
+                document.getElementById("noplayers").style = "visibility: visible;";
+            }
+
             playerList.forEach(player => {
                 fetch(
                     "https://link.samifying.com/api/user/" + player.id.replaceAll('-', '')

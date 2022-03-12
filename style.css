@@ -26,6 +26,21 @@ h1 {
     text-align: center;
 }
 
+.full-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.noplayers {
+    font-size: 40px;
+    opacity: 0.05;
+}
+
+.absolute {
+    position: absolute;
+}
+
 .discord {
     color: #7289DA;
 }
