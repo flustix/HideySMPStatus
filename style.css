@@ -1,0 +1,163 @@
+@font-face {
+    font-family: riffic;
+    src: url("assets/font/riffic.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: riffic;
+    color: white;
+}
+
+body {
+    background-color: #282828;
+}
+
+h1 {
+    font-family: riffic;
+    font-size: 50px;
+    top: 25px;
+    margin-bottom: 25px;
+}
+
+.center {
+    position: relative;
+    text-align: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.playerList {
+    position: absolute;
+    margin-top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.playerIcon {
+    width: 50px;
+    border-radius: 25%;
+}
+
+.playerIconDiscord {
+    margin-left: 10px;
+}
+
+.playerListEntry {
+    display: flexbox;
+    align-content: center;
+}
+
+.playerIconBox {
+    position: relative;
+}
+
+.playerBox {
+    text-align: center;
+    height: 125px;
+}
+
+.playerBoxBG {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+#player-list1 {
+    position: relative;
+}
+
+#player-list2 {
+    position: relative;
+}
+
+.copyInfo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #00000066;
+    border-radius: 5px;
+}
+
+.copyInfo p {
+    font-size: 25px;
+    margin: 10px;
+}
+
+footer {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 30px;
+    max-width: 30px;
+    user-select: none;
+}
+
+.footerText {
+    position: absolute;
+    text-align: center;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 40px;
+    font-size: 10px;
+}
+
+.footerImage {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 30px;
+}
+
+.footerImageBlur {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    filter: blur(5px);
+}
+
+@media not screen and (max-width: 1000px) {
+    #player-list1 {
+        position: absolute;
+        transform: translateX(-60%);
+    }
+
+    #player-list2 {
+        position: relative;
+        transform: translateX(60%);
+    }
+
+    footer {
+        width: 75px;
+        max-width: 75px;
+    }
+
+    .footerImage {
+        height: 75px;
+    }
+
+    .footerText {
+        bottom: 85px;
+        font-size: 20px;
+    }
+}
+
+@keyframes fadeaway {
+    75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="refresh" content="30">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script/list.js"></script>
+    <title>HideySMP | Server Status</title>
+</head>
+
+<body onload="loadList()">
+
+    <h1 class="center">HideySMP Server Status</h1>
+    <p class="center">Currently <span id="online" class="bold">null</span> out of <span id="max"
+            class="bold">null</span> online players</p>
+    <p class="center">Server version: <span id="version">null</span></p>
+
+    <div class="playerList">
+        <ul id="player-list1"></ul>
+        <ul id="player-list2"></ul>
+    </div>
+
+    <div class="copyInfo" style="opacity: 0;" id="copyThing">
+        <p>Copied Discord username to clipboard (as ping)</p>
+    </div>
+</body>
+
+<footer>
+    <a href="https://github.com/Flustix">
+        <p class="footerText">made by<br>flustixx</p>
+        <div>
+            <img class="footerImage footerImageBlur" src="https://avatars.githubusercontent.com/u/65369281">
+            <img class="footerImage" src="https://avatars.githubusercontent.com/u/65369281">
+        </div>
+    </a>
+</footer>
+
+</html>
