@@ -26,6 +26,14 @@ h1 {
     text-align: center;
 }
 
+.discord {
+    color: #7289DA;
+}
+
+.discord:hover {
+    color: #a0afe5;
+}
+
 .bold {
     font-weight: bold;
 }
@@ -66,6 +74,7 @@ a {
 .playerBox {
     text-align: center;
     height: 125px;
+    width: 400px;
 }
 
 .playerBoxBG {
@@ -130,12 +139,12 @@ footer {
 @media not screen and (max-width: 1000px) {
     #player-list1 {
         position: absolute;
-        transform: translateX(-60%);
+        transform: translateX(-50%);
     }
 
     #player-list2 {
         position: relative;
-        transform: translateX(60%);
+        transform: translateX(50%);
     }
 
     footer {
