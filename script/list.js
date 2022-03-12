@@ -3,7 +3,7 @@ var i = 0;
 
 function loadList() {
     fetch(
-        "https://link.samifying.com/api/status"
+        "https://api.samifying.com/v2/status"
     ).then(
         rsp => rsp.json()
     ).then(
@@ -11,10 +11,10 @@ function loadList() {
             var players = data.players;
             document.getElementById('online').innerText = players.online;
             document.getElementById('max').innerText = players.max;
-            document.getElementById('version').innerText = data.version.name;
+            document.getElementById('version').innerText = data.version;
 
 
-            var playerList = players.sample;
+            var playerList = players.list;
 
             playerList.forEach(player => {
                 fetch(
