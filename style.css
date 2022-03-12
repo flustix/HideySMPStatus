@@ -16,7 +16,7 @@ body {
 
 h1 {
     font-family: riffic;
-    font-size: 50px;
+    font-size: 25px;
     top: 25px;
     margin-bottom: 25px;
 }
@@ -104,13 +104,30 @@ a {
     margin: 10px;
 }
 
-footer {
+.left-footer {
     position: fixed;
     right: 20px;
     bottom: 20px;
     width: 30px;
     max-width: 30px;
     user-select: none;
+}
+
+.right-footer {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}
+
+.time-icon {
+    image-rendering: crisp-edges;
+    right: 0;
+    bottom: 0;
+    height: 30px;
+}
+
+.timeText {
+    font-size: 10px;
 }
 
 .footerText {
@@ -137,6 +154,10 @@ footer {
 }
 
 @media not screen and (max-width: 1000px) {
+    h1 {
+        font-size: 50px;
+    }
+
     #player-list1 {
         position: absolute;
         transform: translateX(-50%);
@@ -147,13 +168,21 @@ footer {
         transform: translateX(50%);
     }
 
-    footer {
+    .left-footer {
         width: 75px;
         max-width: 75px;
     }
 
     .footerImage {
         height: 75px;
+    }
+
+    .time-icon {
+        height: 75px;
+    }
+
+    .timeText {
+        font-size: 25px;
     }
 
     .footerText {

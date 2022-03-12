@@ -13,7 +13,6 @@ function loadList() {
             document.getElementById('max').innerText = players.max;
             document.getElementById('version').innerText = data.version;
 
-
             var playerList = players.list;
 
             playerList.forEach(player => {
@@ -25,11 +24,7 @@ function loadList() {
                     discordInfo => {
                         i++;
 
-                        if (player.name == "Anonymous Player") {
-                            addPlayerAnonym(player, discordInfo);
-                        } else {
-                            addPlayer(player, discordInfo);
-                        }
+                        addPlayer(player, discordInfo);
 
                         side++;
 
@@ -39,6 +34,8 @@ function loadList() {
                     }
                 );
             });
+            
+            getTime(data.world.time);
         }
     );
 }
@@ -75,38 +72,42 @@ function addPlayer(player, discordInfo) {
     uuid.innerHTML = player.id;
     box.appendChild(uuid);
 
-    box.onclick = function () {
-        navigator.clipboard.writeText('@' + discordInfo.name);
-        var copy = document.getElementById('copyThing');
-        copy.style = "animation: fadeaway 5s linear 2s 1 alternate;";
-    };
-
     li.appendChild(box);
     list.appendChild(li);
 }
 
-function addPlayerAnonym(player, discordInfo) {
-    var list = document.getElementById('player-list' + side);
+function getTime (time) {
+    if (time >= 13000) {
+        document.getElementById("timeimg").src = "assets/img/times/night.png";
+    } else {
+        document.getElementById("timeimg").src = "assets/img/times/day.png";
+    }
 
-    var li = document.createElement('li');
-    li.id = "player" + i;
+    document.getElementById("time").innerHTML = formatTime(time);
+}
 
-    var box = document.createElement('div');
-    box.className = "playerBox";
+function formatTime (time) {
+    var actualMinutes = parseInt((time + 6000) / 16.666);
+    var minutes = parseInt(actualMinutes % 60);
+    var hours = parseInt(actualMinutes / 60);
 
-    var iconbox = document.createElement('div');
-    iconbox.className = "playerIconBox";
+    if (hours > 23) {
+        hours -= 24;
+    }
 
-    var mcimg = document.createElement("img");
-    mcimg.src = "https://visage.surgeplay.com/face/512/" + player.id;
-    mcimg.className = "playerIcon";
-    iconbox.appendChild(mcimg);
-    box.appendChild(iconbox);
+    var timeString = "";
 
-    var name = document.createElement('p');
-    name.innerHTML = player.name;
-    box.appendChild(name);
+    if (hours < 10) {
+        timeString += "0";
+    }
+    timeString += hours;
 
-    li.appendChild(box);
-    list.appendChild(li);
+    timeString += ":";
+
+    if (minutes < 10) {
+        timeString += "0";
+    }
+    timeString += minutes;
+
+    return timeString;
 }
