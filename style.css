@@ -34,7 +34,16 @@ h1 {
 
 .noplayers {
     font-size: 40px;
-    opacity: 0.05;
+    opacity: 0.1;
+}
+.noplayerssub {
+    font-size: 20px !important;
+    margin-top: 30px;
+}
+
+.linkHighlight {
+    color: #FF5555;
+    text-decoration: underline;
 }
 
 .absolute {

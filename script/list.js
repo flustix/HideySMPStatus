@@ -8,40 +8,53 @@ function loadList() {
         rsp => rsp.json()
     ).then(
         data => {
-            var players = data.players;
-            document.getElementById('online').innerText = players.online;
-            document.getElementById('max').innerText = players.max;
-            document.getElementById('version').innerText = data.version;
-
-            var playerList = players.list;
-
-            if (playerList.length == 0) {
-                document.getElementById("noplayers").style = "visibility: visible;";
-            }
-
-            playerList.forEach(player => {
-                fetch(
-                    "https://link.samifying.com/api/user/" + player.id.replaceAll('-', '')
-                ).then(
-                    rsp => rsp.json()
-                ).then(
-                    discordInfo => {
-                        i++;
-
-                        addPlayer(player, discordInfo);
-
-                        side++;
-
-                        if (side == 3) {
-                            side = 1;
-                        }
-                    }
-                );
-            });
-            
-            getTime(data.world.time);
+            loadStuff(data);
         }
+    ).catch(
+        loadError()
     );
+}
+
+function loadStuff(data) {
+    document.getElementById("noplayers").innerHTML = "";
+    document.getElementById("noplayerssub").innerHTML = "";
+
+    var players = data.players;
+    document.getElementById('online').innerText = players.online;
+    document.getElementById('max').innerText = players.max;
+    document.getElementById('version').innerText = data.version;
+
+    var playerList = players.list;
+
+    if (playerList.length == 0) {
+        document.getElementById("noplayers").innerHTML = "No players online :(";
+        document.getElementById("noplayerssub").innerHTML = "Check back later";
+    } else {
+        loadPlayers(playerList);
+        getTime(data.world.time);
+    }
+}
+
+function loadPlayers (playerList) {
+        playerList.forEach(player => {
+            fetch(
+                "https://link.samifying.com/api/user/" + player.id.replaceAll('-', '')
+            ).then(
+                rsp => rsp.json()
+            ).then(
+                discordInfo => {
+                    i++;
+
+                    addPlayer(player, discordInfo);
+
+                    side++;
+
+                    if (side == 3) {
+                        side = 1;
+                    }
+                }
+            );
+        });
 }
 
 function addPlayer(player, discordInfo) {
@@ -78,4 +91,9 @@ function addPlayer(player, discordInfo) {
 
     li.appendChild(box);
     list.appendChild(li);
+}
+
+function loadError() {
+    document.getElementById("noplayers").innerHTML = "Internal Error";
+    document.getElementById("noplayerssub").innerHTML = "Please Report this issue on the <a href='google.com' class='linkHighlight'>github</a>!";
 }
