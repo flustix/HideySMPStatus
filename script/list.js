@@ -10,9 +10,9 @@ function loadList() {
         data => {
             loadStuff(data);
         }
-    ).catch(
+    ).catch(e => {
         loadError()
-    );
+    });
 }
 
 function loadStuff(data) {
@@ -88,6 +88,10 @@ function addPlayer(player, discordInfo) {
     var uuid = document.createElement('p');
     uuid.innerHTML = player.id;
     box.appendChild(uuid);
+
+    box.onclick = function(){
+        window.location = "lookup/?username=" + player.name;
+    };
 
     li.appendChild(box);
     list.appendChild(li);
