@@ -31,30 +31,31 @@ function loadStuff(data) {
         document.getElementById("noplayerssub").innerHTML = "Check back later";
     } else {
         loadPlayers(playerList);
-        getTime(data.world.time);
     }
+
+    getTime(data.world.time);
 }
 
-function loadPlayers (playerList) {
-        playerList.forEach(player => {
-            fetch(
-                "https://link.samifying.com/api/user/" + player.id.replaceAll('-', '')
-            ).then(
-                rsp => rsp.json()
-            ).then(
-                discordInfo => {
-                    i++;
+function loadPlayers(playerList) {
+    playerList.forEach(player => {
+        fetch(
+            "https://link.samifying.com/api/user/" + player.id.replaceAll('-', '')
+        ).then(
+            rsp => rsp.json()
+        ).then(
+            discordInfo => {
+                i++;
 
-                    addPlayer(player, discordInfo);
+                addPlayer(player, discordInfo);
 
-                    side++;
+                side++;
 
-                    if (side == 3) {
-                        side = 1;
-                    }
+                if (side == 3) {
+                    side = 1;
                 }
-            );
-        });
+            }
+        );
+    });
 }
 
 function addPlayer(player, discordInfo) {
@@ -89,7 +90,7 @@ function addPlayer(player, discordInfo) {
     uuid.innerHTML = player.id;
     box.appendChild(uuid);
 
-    box.onclick = function(){
+    box.onclick = function () {
         window.location = "lookup/?username=" + player.name;
     };
 
