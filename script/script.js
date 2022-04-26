@@ -156,6 +156,7 @@ function displayError(e) {
 }
 
 function soonDisplay() {
+    curPlayerID = -1;
     var contentBox = document.createElement("div");
 
     var soonText = document.createElement("p");
