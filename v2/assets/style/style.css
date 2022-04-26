@@ -12,23 +12,33 @@
 }
 
 body {
-    background-color: #AAAAAA;
-    background-image: url('../img/bg.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-blend-mode: multiply;
-    background-position: center;
     height: 100vh;
     display: flex;
     overflow: hidden;
 }
 
+.bg {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background-image: url('../img/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+
+    filter: blur(15px);
+}
+
 #sidebar {
     background-color: #00000044;
     height: 100vh;
-    width: 250px;
-    max-width: 250px;
+    width: 100%;
+    max-width: 100%;
     flex: none;
+    z-index: 2;
 }
 
 #rightBar {
@@ -38,25 +48,35 @@ body {
     flex: none;
 }
 
-.titleBox {
+.sidebarTitle {
     position: relative;
     text-align: center;
     height: 70px;
-}
-
-#sidebarPlayerBox {
-    width: 240px;
-    height: 40px;
-    max-height: 40px;
-    border-radius: 5px;
-    margin-top: 5px;
-    margin-left: 5px;
-    background-color: #00000044;
     display: flex;
 }
 
-#sidebarPlayerBox:hover {
-    background-color: #FFFFFF44;
+.sidebarTitle .title {
+    font-size: 32px;
+}
+
+.titleBox {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.sidebarTitle .title {
+    width: max-content;
+}
+
+.sidebarTitle {
+    position: relative;
+    height: 90%;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+#sidebarPlayerBox {
+    display: flex;
 }
 
 #playerBoxName {
@@ -77,6 +97,83 @@ body {
 
 #content {
     position: relative;
-    width: 100%;
+    width: 0%;
     height: 100vh;
+    z-index: 2;
+}
+
+.sidebarTab {
+    width: 96%;
+    height: 40px;
+    max-height: 40px;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-left: 2%;
+    background-color: #00000044;
+}
+
+.sidebarTab:hover {
+    background-color: #FFFFFF44;
+}
+
+.sidebarTab p {
+    position: relative;
+    width: max-content;
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+.sidebarSeperator {
+    height: 1px;
+    background-color: #FFFFFF22;
+    width: 80%;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10%;
+}
+
+#loadingOverlay {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 3;
+    border-radius: 15px;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#soonText {
+    position: relative;
+    font-size: 75px;
+    width: max-content;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.worldTab,
+.pluginTab {
+    visibility: hidden;
+    height: 0px;
+}
+
+@media not screen and (max-width: 1000px) {
+    #content {
+        width: 100%;
+    }
+
+    #sidebar {
+        width: 250px;
+        max-width: 250px;
+    }
+
+    .worldTab,
+    .pluginTab {
+        visibility: visible;
+        height: 40px;
+    }
 }

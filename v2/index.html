@@ -1,28 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://eu.mc-api.net/v3/server/favicon/mc.pequla.one">
 
     <link rel="stylesheet" href="assets/style/style.css">
+    <link rel="stylesheet" href="assets/style/loadingCircle.css">
+
+    <link rel="stylesheet" href="assets/style/content/player.css">
 
     <script src="script/jquery.js"></script>
     <script src="script/script.js"></script>
+    <script src="script/playerdata.js"></script>
 
     <title>HideySMP Status V2</title>
 </head>
+
 <body onload="loadConf();">
+    <div class="bg"></div>
     <div id="sidebar" onload="getList();">
         <ul id="sidebarList">
-            <div class="titleBox">HideySMP</div>
+            <div class="sidebarTitle">
+                <img src="https://eu.mc-api.net/v3/server/favicon/mc.pequla.one" alt="servericon">
+                <div class="titleBox">
+                    <p class="title">HideySMP</p>
+                    <p class="titleip">mc.pequla.one</p>
+                </div>
+            </div>
+
+            <div class="sidebarTab worldTab" onclick="soonDisplay()">
+                <p>World</p>
+            </div>
+            <div class="sidebarTab pluginTab" onclick="soonDisplay()">
+                <p>Plugins</p>
+            </div>
+            <div class="sidebarSeperator"></div>
         </ul>
     </div>
     <div id="content">
 
     </div>
+    <div id="loadingOverlay" style="opacity: 0; width: 0px; height: 0px;">
+        <svg class="circular-loader" viewBox="25 25 50 50">
+            <circle class="loader-path" cx="50" cy="50" r="20" fill="none" stroke="#ffffff" stroke-width="2" />
+        </svg>
+    </div>
     <!-- <div id="rightBar">
         <iframe src="https://discord.com/widget?id=264801645370671114&theme=dark" width="250" height="100%" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
     </div> -->
 </body>
+
 </html>

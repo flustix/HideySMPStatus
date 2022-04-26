@@ -1,0 +1,42 @@
+#contentPlayerName {
+    position: relative;
+    text-align: center;
+    font-size: 60px;
+    margin-top: 10px;
+}
+
+#contentPlayerDiscordName {
+    position: relative;
+    text-align: center;
+    font-size: 28px;
+}
+
+#idBox {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#idBox div p {
+    text-align: center;
+}
+
+#idTitle {
+    margin-top: 7px;
+    font-size: 12px;
+}
+
+#playerIconBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.playerIcon {
+    position: relative;
+    height: 200px;
+    border-radius: 15px;
+    margin: 0 5px 0 5px;
+}
