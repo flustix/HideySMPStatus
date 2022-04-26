@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="refresh" content="30">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts.css">
+    <script src="script/list.js"></script>
+    <script src="script/time.js"></script>
+    <link rel="icon" type="image/png" href="https://eu.mc-api.net/v3/server/favicon/play.samifying.com">
+    <title>HideySMP | Server Status</title>
+</head>
+
+<body onload="loadList()">
+
+    <h1 class="center">HideySMP Server Status</h1>
+    <p class="center">Currently <span id="online" class="bold">null</span> out of <span id="max"
+            class="bold">null</span> online players</p>
+    <p class="center">Server version: <span id="version">null</span></p>
+    <a href="https://discord.gg/samifying">
+        <p class="center discord">Discord Server</p>
+    </a>
+
+
+    <div class="playerList">
+        <ul id="player-list1"></ul>
+        <ul id="player-list2"></ul>
+    </div>
+
+    <p class="full-center absolute noplayers" id="noplayers">Loading...</p>
+    <p class="full-center absolute noplayers noplayerssub" id="noplayerssub"></p>
+
+    <!-- <div class="copyInfo" style="opacity: 0;" id="copyThing">
+        <p>Copied Discord username to clipboard (as ping)</p>
+    </div> -->
+</body>
+
+<footer class="left-footer">
+    <a href="https://github.com/Flustix">
+        <p class="footerText">made by<br>flustixx</p>
+        <div>
+            <img class="footerImage footerImageBlur" src="https://avatars.githubusercontent.com/u/65369281">
+            <img class="footerImage" src="https://avatars.githubusercontent.com/u/65369281">
+        </div>
+    </a>
+</footer>
+
+<footer class="right-footer">
+    <p class="timeText center" id="time">06:00</p>
+    <div>
+        <img src="assets/img/times/day.png" class="time-icon" id="timeimg">
+    </div>
+</footer>
+
+</html>

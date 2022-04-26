@@ -4,55 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="refresh" content="30">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="fonts.css">
-    <script src="script/list.js"></script>
-    <script src="script/time.js"></script>
-    <link rel="icon" type="image/png" href="https://eu.mc-api.net/v3/server/favicon/play.samifying.com">
-    <title>HideySMP | Server Status</title>
+    <link rel="icon" type="image/png" href="https://eu.mc-api.net/v3/server/favicon/mc.pequla.one">
+
+    <link rel="stylesheet" href="assets/style/style.css">
+    <link rel="stylesheet" href="assets/style/loadingCircle.css">
+
+    <link rel="stylesheet" href="assets/style/content/player.css">
+
+    <script src="script/jquery.js"></script>
+    <script src="script/script.js"></script>
+    <script src="script/playerdata.js"></script>
+
+    <title>HideySMP Status V2</title>
 </head>
 
-<body onload="loadList()">
+<body onload="loadConf();">
+    <div class="bg"></div>
+    <div id="sidebar" onload="getList();">
+        <ul id="sidebarList">
+            <div class="sidebarTitle">
+                <img src="https://eu.mc-api.net/v3/server/favicon/mc.pequla.one" alt="servericon">
+                <div class="titleBox">
+                    <p class="title">HideySMP</p>
+                    <p class="titleip">mc.pequla.one</p>
+                </div>
+            </div>
 
-    <h1 class="center">HideySMP Server Status</h1>
-    <p class="center">Currently <span id="online" class="bold">null</span> out of <span id="max"
-            class="bold">null</span> online players</p>
-    <p class="center">Server version: <span id="version">null</span></p>
-    <a href="https://discord.gg/samifying">
-        <p class="center discord">Discord Server</p>
-    </a>
-
-
-    <div class="playerList">
-        <ul id="player-list1"></ul>
-        <ul id="player-list2"></ul>
+            <div class="sidebarTab worldTab" onclick="soonDisplay()">
+                <p>World</p>
+            </div>
+            <div class="sidebarTab pluginTab" onclick="soonDisplay()">
+                <p>Plugins</p>
+            </div>
+            <div class="sidebarSeperator"></div>
+        </ul>
     </div>
+    <div id="content">
 
-    <p class="full-center absolute noplayers" id="noplayers">Loading...</p>
-    <p class="full-center absolute noplayers noplayerssub" id="noplayerssub"></p>
-
-    <!-- <div class="copyInfo" style="opacity: 0;" id="copyThing">
-        <p>Copied Discord username to clipboard (as ping)</p>
+    </div>
+    <div id="loadingOverlay" style="opacity: 0; width: 0px; height: 0px;">
+        <svg class="circular-loader" viewBox="25 25 50 50">
+            <circle class="loader-path" cx="50" cy="50" r="20" fill="none" stroke="#ffffff" stroke-width="2" />
+        </svg>
+    </div>
+    <!-- <div id="rightBar">
+        <iframe src="https://discord.com/widget?id=264801645370671114&theme=dark" width="250" height="100%" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
     </div> -->
 </body>
-
-<footer class="left-footer">
-    <a href="https://github.com/Flustix">
-        <p class="footerText">made by<br>flustixx</p>
-        <div>
-            <img class="footerImage footerImageBlur" src="https://avatars.githubusercontent.com/u/65369281">
-            <img class="footerImage" src="https://avatars.githubusercontent.com/u/65369281">
-        </div>
-    </a>
-</footer>
-
-<footer class="right-footer">
-    <p class="timeText center" id="time">06:00</p>
-    <div>
-        <img src="assets/img/times/day.png" class="time-icon" id="timeimg">
-    </div>
-</footer>
 
 </html>
