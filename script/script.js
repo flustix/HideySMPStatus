@@ -133,6 +133,11 @@ function displayError(e) {
 
     var content = document.getElementById("content");
     content.style.backgroundColor = "#202020DD";
+    content.style.marginLeft = "0";
+    content.style.width = "100%";
+    content.style.maxWidth = "100%";
+    content.style.visibility = "visible";
+    content.style.textAlign = "center";
 
     var text = document.createElement("p");
     text.innerHTML = "An error occoured!";

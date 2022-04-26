@@ -24,12 +24,11 @@ body {
     width: 120%;
     height: 120%;
     background-image: url('../img/bg.png');
-    background-repeat: no-repeat;
-    background-size: cover;
     background-position: center;
-    z-index: 1;
+    background-size: cover;
+    z-index: 0;
 
-    filter: blur(15px);
+    filter: blur(5px);
 }
 
 #sidebar {
@@ -97,9 +96,13 @@ body {
 
 #content {
     position: relative;
-    width: 0%;
+    width: 0;
+    max-width: 0;
+    visibility: hidden;
     height: 100vh;
     z-index: 2;
+
+    margin-left: 1000%;
 }
 
 .sidebarTab {
@@ -164,6 +167,9 @@ body {
 @media not screen and (max-width: 1000px) {
     #content {
         width: 100%;
+        max-width: 100%;
+        visibility: visible;
+        margin-left: 0;
     }
 
     #sidebar {
