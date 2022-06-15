@@ -144,6 +144,10 @@ function displayError(e) {
     var sidebar = document.getElementById("sidebar");
     sidebar.style.width = 0;
     sidebar.style.visibility = "hidden";
+    
+    var rightsidebar = document.getElementById("rightBar");
+    rightsidebar.style.width = 0;
+    rightsidebar.style.visibility = "hidden";
 
     var content = document.getElementById("content");
     content.style.backgroundColor = "#202020DD";
