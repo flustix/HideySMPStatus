@@ -196,6 +196,7 @@ function setContent(newContent) {
 }
 
 function loadPlugins() {
+    curPlayerID = -1;
     var pluginList = apiData.plugins;
     var pluginContentBox = document.createElement("div");
 
