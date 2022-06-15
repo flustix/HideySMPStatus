@@ -3,18 +3,24 @@ var config;
 var apiData;
 var content;
 var curPlayerID = -1;
+var sidebarContent;
 
 async function loadConf() {
-    addLoading();
+    sidebarContent = document.getElementById("sidebarList").innerHTML;
     content = document.getElementById("content");
     await $.getJSON('config.json', function (data) {
         config = data;
     });
     getList();
+
+    setInterval(function () {
+        clearList();
+        getList();
+    }, 10000);
 }
 
 function getList() {
-    console.log("loading... " + config.apiLink)
+    addLoading();
     fetch(
         config.apiLink + "status"
     ).then(
@@ -32,6 +38,10 @@ function getList() {
     )
 }
 
+function clearList() {
+    document.getElementById("sidebarList").innerHTML = sidebarContent;
+}
+
 function loadList(data) {
     var players = data.players;
     playersList = players.list;
@@ -42,7 +52,6 @@ function loadList(data) {
 function loadPlayers(list) {
     var i = 0;
     list.forEach(player => {
-        console.log("loading player " + player.name + " (" + player.id + ")");
         var sidebar = document.getElementById("sidebarList");
 
         var box = document.createElement("div");
@@ -69,7 +78,6 @@ function loadPlayers(list) {
         i++;
     });
     removeLoading();
-    console.log("done!");
 }
 
 function switchPlayerData(id) {
@@ -80,7 +88,6 @@ function switchPlayerData(id) {
 
     addLoading();
     var curPlayerData = playersList[id];
-    console.log("loading " + curPlayerData.name);
     fetch(
         config.apiLink + 'user?uuid=' + curPlayerData.id
     ).then(
