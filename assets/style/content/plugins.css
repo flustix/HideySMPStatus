@@ -1,0 +1,12 @@
+.pluginTitle {
+    position: relative;
+    text-align: center;
+    font-size: 60px;
+    margin-top: 10px;
+}
+
+.pluginBox {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 22px;
+}

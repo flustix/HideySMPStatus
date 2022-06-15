@@ -194,3 +194,25 @@ function soonDisplay() {
 function setContent(newContent) {
     content.innerHTML = newContent.innerHTML;
 }
+
+function loadPlugins() {
+    var pluginList = apiData.plugins;
+    var pluginContentBox = document.createElement("div");
+
+    var pluginTitle = document.createElement("p");
+    pluginTitle.textContent = "Plugins"
+    pluginTitle.className = "pluginTitle";
+    pluginContentBox.appendChild(pluginTitle);
+
+    var pluginBox = document.createElement("div");
+    pluginBox.className = "pluginBox";
+
+    pluginList.forEach(plugin => {
+        var pluginName = document.createElement("p");
+        pluginName.innerHTML = `<a href="https://www.google.com/search?q=Minecraft+${plugin}" target="_blank">${plugin}</a>`;
+        pluginBox.appendChild(pluginName);
+    });
+
+    pluginContentBox.appendChild(pluginBox);
+    setContent(pluginContentBox);
+}
