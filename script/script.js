@@ -46,14 +46,21 @@ function loadList(data) {
     var players = data.players;
     playersList = players.list;
 
-    loadPlayers(playersList);
+    var sidebar = document.getElementById("sidebarList");
+
+    var playerCountBox = document.createElement("div");
+    var playerCount = document.createElement("p");  
+    playerCount.className = "playerCount";
+    playerCount.textContent = `${players.online}/${players.max} Players`;
+    playerCountBox.appendChild(playerCount);
+    sidebar.appendChild(playerCountBox);
+
+    loadPlayers(playersList, sidebar);
 }
 
-function loadPlayers(list) {
+function loadPlayers(list, sidebar) {
     var i = 0;
     list.forEach(player => {
-        var sidebar = document.getElementById("sidebarList");
-
         var box = document.createElement("div");
         box.id = "sidebarPlayerBox";
         box.className = "sidebarTab";

@@ -173,6 +173,11 @@ body {
     height: 0px;
 }
 
+.playerCount {
+    text-align: center;
+    margin: 10px 0;
+}
+
 @media not screen and (max-width: 1000px) {
     #content {
         width: 100%;
