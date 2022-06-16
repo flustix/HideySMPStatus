@@ -11,8 +11,10 @@
     <link rel="stylesheet" href="assets/style/loadingCircle.css">
     <link rel="stylesheet" href="assets/style/content/player.css">
     <link rel="stylesheet" href="assets/style/content/plugins.css">
+    <link rel="stylesheet" href="assets/style/discord.css">
 
     <script src="script/jquery.js"></script>
+    <script src="script/discord.js"></script>
     <script src="script/script.js"></script>
     <script src="script/playerdata.js"></script>
 
@@ -21,7 +23,7 @@
 
 <body onload="loadConf();">
     <div class="bg"></div>
-    <div id="sidebar" onload="getList();">
+    <div id="sidebar">
         <ul id="sidebarList">
             <div class="sidebarTitle">
                 <img src="https://eu.mc-api.net/v3/server/favicon/mc.pequla.one" alt="servericon">
@@ -38,6 +40,8 @@
                 <p>Plugins</p>
             </div>
             <div class="sidebarSeperator"></div>
+            <div id="playerCount"></div>
+            <div id="playerList"></div>
         </ul>
     </div>
     <div id="content">
@@ -49,10 +53,8 @@
         </svg>
     </div>
     <div id="rightBar">
-        <p>something<br>interesting here...</p>
-        <!-- <iframe src="https://discord.com/widget?id=264801645370671114&theme=dark" width="250" height="100%"
-            allowtransparency="true" frameborder="0"
-            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe> -->
+        <a href="https://discord.gg/samifying" target="_blank"><h1>Hidey Hole<br>Discord</h1></a>
+        <div id="discordMemberList"></div>
     </div>
 </body>
 

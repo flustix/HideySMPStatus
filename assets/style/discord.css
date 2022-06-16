@@ -1,0 +1,35 @@
+#discordMemberList {
+    overflow: scroll;
+    height: 100vh;
+}
+
+#discordMemberList div {
+    position: relative;
+    height: 40px;
+    display: flex;
+}
+
+#discordMemberList div img {
+    height: 25px;
+    margin: 7.5px;
+    border-radius: 5px;
+}
+
+#discordMemberList div p {
+    position: relative;
+    margin-left: 2.5px;
+    line-break: loose;
+    top: 50%;
+    transform: translateY(-50%);
+    height: max-content;
+}
+
+.discordOnline {
+    color: #389d58;
+}
+.discordIdle {
+    color: #efa119;
+}
+.discordDnD {
+    color: #e64043;
+}

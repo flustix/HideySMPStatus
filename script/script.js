@@ -3,15 +3,14 @@ var config;
 var apiData;
 var content;
 var curPlayerID = -1;
-var sidebarContent;
 
 async function loadConf() {
-    sidebarContent = document.getElementById("sidebarList").innerHTML;
     content = document.getElementById("content");
     await $.getJSON('config.json', function (data) {
         config = data;
     });
     getList();
+    loadDiscord();
 
     setInterval(function () {
         clearList();
@@ -39,28 +38,27 @@ function getList() {
 }
 
 function clearList() {
-    document.getElementById("sidebarList").innerHTML = sidebarContent;
+    document.getElementById("playerList").innerHTML = sidebarContent;
 }
 
 function loadList(data) {
     var players = data.players;
     playersList = players.list;
 
-    var sidebar = document.getElementById("sidebarList");
-
     var playerCountBox = document.createElement("div");
     var playerCount = document.createElement("p");  
     playerCount.className = "playerCount";
     playerCount.textContent = `${players.online}/${players.max} Players`;
     playerCountBox.appendChild(playerCount);
-    sidebar.appendChild(playerCountBox);
+    document.getElementById("playerCount").innerHTML = playerCountBox.innerHTML;
 
-    loadPlayers(playersList, sidebar);
+    loadPlayers(playersList);
 }
 
-function loadPlayers(list, sidebar) {
+function loadPlayers(list) {
     var i = 0;
     list.forEach(player => {
+        var playerList = document.getElementById("playerList");
         var box = document.createElement("div");
         box.id = "sidebarPlayerBox";
         box.className = "sidebarTab";
@@ -81,7 +79,7 @@ function loadPlayers(list, sidebar) {
 
         box.setAttribute("onclick", "switchPlayerData(" + i + ");");
 
-        sidebar.appendChild(box);
+        playerList.appendChild(box);
         i++;
     });
     removeLoading();

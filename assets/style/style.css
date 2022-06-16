@@ -49,11 +49,10 @@ body {
     visibility: hidden;
 }
 
-#rightBar p {
+#rightBar h1 {
     text-align: center;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    color: #7289DA;
+    text-decoration: none;
 }
 
 .sidebarTitle {
