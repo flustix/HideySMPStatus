@@ -38,7 +38,7 @@ function getList() {
 }
 
 function clearList() {
-    document.getElementById("playerList").innerHTML = sidebarContent;
+    document.getElementById("playerList").innerHTML = "";
 }
 
 function loadList(data) {
