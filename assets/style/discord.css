@@ -1,6 +1,6 @@
 #discordMemberList {
     overflow: scroll;
-    height: 100vh;
+    height: calc(100vh - 78px);
 }
 
 #discordMemberList div {
