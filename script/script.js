@@ -130,12 +130,14 @@ function removeLoading() {
     document.getElementById("loadingOverlay").style.opacity = 0;
     document.getElementById("loadingOverlay").style.width = 0;
     document.getElementById("loadingOverlay").style.height = 0;
+    document.getElementById("loadingOverlay").style.display = "none";
 }
 
 function addLoading() {
     document.getElementById("loadingOverlay").style.opacity = 1;
     document.getElementById("loadingOverlay").style.width = "110px";
     document.getElementById("loadingOverlay").style.height = "110px";
+    document.getElementById("loadingOverlay").style.display = "initial";
 }
 
 function displayError(e) {
