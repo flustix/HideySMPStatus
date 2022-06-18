@@ -43,7 +43,7 @@ function clearList() {
 
 function loadList(data) {
     var players = data.players;
-    playersList = players.list;
+    playersList = players.list.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
 
     var playerCountBox = document.createElement("div");
     var playerCount = document.createElement("p");  
