@@ -208,7 +208,7 @@ function loadPlugins() {
 
     pluginList.forEach(plugin => {
         var pluginName = document.createElement("p");
-        pluginName.innerHTML = `<a href="https://www.google.com/search?q=Minecraft+${plugin}" target="_blank">${plugin}</a>`;
+        pluginName.innerHTML = `<a href="${plugin.website}" target="_blank">${plugin.name}</a>`;
         pluginBox.appendChild(pluginName);
     });
 

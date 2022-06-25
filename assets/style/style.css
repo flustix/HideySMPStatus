@@ -86,6 +86,10 @@ body {
     display: flex;
 }
 
+#playerList {
+    overflow: scroll;
+}
+
 #playerBoxName {
     position: relative;
     margin-left: 5px;
