@@ -125,11 +125,19 @@ body {
     margin-top: 5px;
     margin-left: 2%;
     background-color: #00000044;
-    transition: background-color .2s;
 }
 
-.sidebarTab:hover {
+.sidebarTab:hover .sidebarTabBG {
+    width: 96%;
+}
+
+.sidebarTabBG {
+    border-radius: 5px;
+    width: 0%;
+    height: 40px;
+    position: absolute;
     background-color: #FFFFFF44;
+    transition: width .2s ease-in-out;
 }
 
 .sidebarTab p {
@@ -193,6 +201,11 @@ body {
     #sidebarLeft {
         width: 250px;
         max-width: 250px;
+    }
+
+    
+    .sidebarTab:hover .sidebarTabBG {
+        width: 240px;
     }
 
     #sidebarRight {

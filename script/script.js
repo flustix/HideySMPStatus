@@ -13,8 +13,8 @@ async function loadConf() {
     loadDiscord();
 
     setInterval(function () {
-        clearList();
-        getList();
+        // clearList();
+        // getList();
     }, 10000);
 }
 
@@ -63,6 +63,9 @@ function loadPlayers(list) {
         box.id = "sidebarPlayerBox";
         box.className = "sidebarTab";
 
+        var bgBox = document.createElement("div");
+        bgBox.className = "sidebarTabBG";
+
         var skinBox = document.createElement("div");
 
         var skin = document.createElement("img");
@@ -74,6 +77,7 @@ function loadPlayers(list) {
         name.textContent = player.name;
         name.id = "playerBoxName";
 
+        box.appendChild(bgBox);
         box.appendChild(skinBox);
         box.appendChild(name);
 
