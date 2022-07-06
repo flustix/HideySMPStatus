@@ -1,3 +1,11 @@
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: #f0a951;
+}
+
 .pluginTitle {
     position: relative;
     text-align: center;
@@ -5,8 +13,42 @@
     margin-top: 10px;
 }
 
-.pluginBox {
+.pluginList {
     margin-top: 20px;
     text-align: center;
     font-size: 22px;
+    overflow-y: scroll;
+    max-height: calc(100vh - 70px);
+}
+
+.plugin {
+    height: 200px;
+    width: 400px;
+    display: inline-table;
+    background: #00000020;
+    border-radius: 15px;
+    margin: 10px;
+    padding: 10px;
+    transition: all .4;
+}
+
+.plugin h1 {
+    font-size: 30px;
+}
+
+.plugin a {
+    width: 100%;
+    height: 100%;
+}
+
+.plugin p {
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.plugin span {
+    margin-top: 10px;
+    font-size: 15px;
+    bottom: 0px;
+    position: relative;
 }

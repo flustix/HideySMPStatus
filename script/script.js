@@ -206,12 +206,27 @@ function loadPlugins() {
     pluginContentBox.appendChild(pluginTitle);
 
     var pluginBox = document.createElement("div");
-    pluginBox.className = "pluginBox";
+    pluginBox.className = "pluginList";
 
     pluginList.forEach(plugin => {
-        var pluginName = document.createElement("p");
-        pluginName.innerHTML = `<a href="${plugin.website}" target="_blank">${plugin.name}</a>`;
-        pluginBox.appendChild(pluginName);
+        var pluginInfoBox = document.createElement("div");
+        pluginInfoBox.className = "plugin";
+
+        var pluginName = document.createElement("h1");
+        pluginName.innerHTML = plugin.name;
+        pluginInfoBox.appendChild(pluginName);
+
+        var pluginDesc = document.createElement("p");
+        pluginDesc.innerHTML = plugin.description;
+        pluginInfoBox.appendChild(pluginDesc);
+
+        var pluginVer = document.createElement("span");
+        pluginVer.innerHTML = "v" + plugin.version;
+        pluginInfoBox.appendChild(pluginVer);
+
+        pluginInfoBox.innerHTML = `<a href="${plugin.website}" target="_blank">${pluginInfoBox.innerHTML}</a>`;
+
+        pluginBox.appendChild(pluginInfoBox);
     });
 
     pluginContentBox.appendChild(pluginBox);
