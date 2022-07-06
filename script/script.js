@@ -123,7 +123,6 @@ function switchPlayerData(id) {
             displayError(e);
         }
     );
-    console.log("done!");
 }
 
 function removeLoading() {
