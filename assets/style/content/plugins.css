@@ -50,5 +50,6 @@ a:hover {
     margin-top: 10px;
     font-size: 15px;
     bottom: 0px;
+    opacity: 0.4;
     position: relative;
 }
