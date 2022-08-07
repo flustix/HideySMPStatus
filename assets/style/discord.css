@@ -1,5 +1,5 @@
 #discordMemberList {
-    overflow: scroll;
+    overflow: hidden;
     height: calc(100vh - 78px);
 }
 

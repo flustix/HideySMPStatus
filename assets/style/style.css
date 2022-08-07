@@ -87,7 +87,7 @@ body {
 }
 
 #playerList {
-    overflow-y: scroll;
+    overflow-y: hidden;
 }
 
 #playerBoxName {
