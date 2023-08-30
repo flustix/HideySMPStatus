@@ -43,10 +43,15 @@ function clearList() {
 
 function loadList(data) {
     var players = data.players;
-    playersList = players.list.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
+    playersList = players.sample.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
+
+    // Display server icon
+    const icon = document.getElementById('server-icon')
+    icon.src = data.favicon
+    icon.hidden = false
 
     var playerCountBox = document.createElement("div");
-    var playerCount = document.createElement("p");  
+    var playerCount = document.createElement("p");
     playerCount.className = "playerCount";
     playerCount.textContent = `${players.online}/${players.max} Players`;
     playerCountBox.appendChild(playerCount);
@@ -69,7 +74,7 @@ function loadPlayers(list) {
         var skinBox = document.createElement("div");
 
         var skin = document.createElement("img");
-        skin.src = "https://visage.surgeplay.com/face/512/" + player.id;
+        skin.src = "https://visage.surgeplay.com/face/128/" + player.uuid;
         skin.id = "playerBoxSkin";
         skinBox.appendChild(skin);
 
@@ -97,36 +102,23 @@ function switchPlayerData(id) {
 
     addLoading();
     var curPlayerData = playersList[id];
-    fetch(
-        config.apiLink + 'user?uuid=' + curPlayerData.id
-    ).then(
-        drsp => drsp.json()
-    ).then(
-        discord => {
-            var contentBox = document.createElement("div");
+    var contentBox = document.createElement("div");
 
-            var playerName = document.createElement("p");
-            playerName.textContent = curPlayerData.name;
-            playerName.id = "contentPlayerName";
-            contentBox.appendChild(playerName);
+    var playerName = document.createElement("p");
+    playerName.textContent = curPlayerData.name;
+    playerName.id = "contentPlayerName";
+    contentBox.appendChild(playerName);
 
-            var discordName = document.createElement("p");
-            discordName.textContent = discord.name;
-            discordName.id = "contentPlayerDiscordName";
-            contentBox.appendChild(discordName);
+    var discordName = document.createElement("p");
+    discordName.textContent = curPlayerData.tag;
+    discordName.id = "contentPlayerDiscordName";
+    contentBox.appendChild(discordName);
 
-            contentBox.appendChild(getIcons(discord.avatar, "https://visage.surgeplay.com/face/512/" + curPlayerData.id));
-            contentBox.appendChild(getIDs(discord, curPlayerData));
+    contentBox.appendChild(getIcons(curPlayerData.avatar, "https://visage.surgeplay.com/face/512/" + curPlayerData.uuid));
+    contentBox.appendChild(getIDs(curPlayerData, curPlayerData));
 
-            setContent(contentBox);
-            removeLoading();
-        }
-    ).catch(
-        e => {
-            console.log(e);
-            displayError(e);
-        }
-    );
+    setContent(contentBox);
+    removeLoading();
 }
 
 function removeLoading() {
@@ -147,7 +139,7 @@ function displayError(e) {
     var sidebar = document.getElementById("sidebar");
     sidebar.style.width = 0;
     sidebar.style.visibility = "hidden";
-    
+
     var rightsidebar = document.getElementById("rightBar");
     rightsidebar.style.width = 0;
     rightsidebar.style.visibility = "hidden";

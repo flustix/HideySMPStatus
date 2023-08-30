@@ -4,9 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <link rel="icon" type="image/png" href="https://eu.mc-api.net/v3/server/favicon/play.samifying.com">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="assets/style/style.css">
     <link rel="stylesheet" href="assets/style/loadingCircle.css">
     <link rel="stylesheet" href="assets/style/content/player.css">
@@ -18,46 +21,59 @@
     <script src="script/script.js"></script>
     <script src="script/playerdata.js"></script>
 
-    <title>HideySMP Status V2</title>
+    <link rel="icon" type="image/png" href="/assets/img/icon.png">
+    <title>HideySMP Status</title>
 </head>
 
 <body onload="loadConf();">
-    <div class="bg"></div>
-    <div id="sidebarLeft">
-        <ul id="sidebarLeftList">
-            <div class="sidebarTitle">
-                <img src="https://eu.mc-api.net/v3/server/favicon/play.samifying.com" alt="servericon">
-                <div class="titleBox">
-                    <p class="title">HideySMP</p>
-                    <p class="titleip">play.samifying.com</p>
-                </div>
+<div class="bg"></div>
+<div id="sidebarLeft">
+    <ul id="sidebarLeftList">
+        <div class="sidebarTitle">
+            <img alt="servericon" id="server-icon" hidden>
+            <div class="titleBox">
+                <p class="title">HideySMP</p>
+                <p class="titleip">play.samifying.com</p>
             </div>
+        </div>
 
-            <div class="sidebarTab worldTab" onclick="soonDisplay()">
-                <div class="sidebarTabBG"></div>
-                <p>World</p>
-            </div>
-            <div class="sidebarTab pluginTab" onclick="loadPlugins()">
-                <div class="sidebarTabBG"></div>
-                <p>Plugins</p>
-            </div>
-            <div class="sidebarSeperator"></div>
-            <div id="playerCount"></div>
-            <div id="playerList"></div>
-        </ul>
-    </div>
-    <div id="content">
+        <div class="sidebarTab" onclick="window.location.href='https://www.twitch.tv/samifying'">
+            <div class="sidebarTabBG"></div>
+            <p><i class="fa-brands fa-twitch"></i> Twitch</p>
+        </div>
+        <div class="sidebarTab" onclick="window.location.href='https://www.youtube.com/@Samifying'">
+            <div class="sidebarTabBG"></div>
+            <p><i class="fa-brands fa-youtube"></i> YouTube</p>
+        </div>
+        <div class="sidebarTab" onclick="window.location.href='https://discord.gg/sami'">
+            <div class="sidebarTabBG"></div>
+            <p><i class="fa-brands fa-discord"></i> Discord</p>
+        </div>
+        <!--            <div class="sidebarTab worldTab" onclick="soonDisplay()">-->
+        <!--                <div class="sidebarTabBG"></div>-->
+        <!--                <p>World</p>-->
+        <!--            </div>-->
+        <!--            <div class="sidebarTab pluginTab" onclick="soonDisplay()">-->
+        <!--                <div class="sidebarTabBG"></div>-->
+        <!--                <p>Plugins</p>-->
+        <!--            </div>-->
+        <div class="sidebarSeperator"></div>
+        <div id="playerCount"></div>
+        <div id="playerList"></div>
+    </ul>
+</div>
+<div id="content">
 
-    </div>
-    <div id="sidebarRight">
-        <a href="https://discord.gg/sami" target="_blank"><h1>Hidey Hole<br>Discord</h1></a>
-        <div id="discordMemberList"></div>
-    </div>
-    <div id="loadingOverlay" style="opacity: 0; width: 0px; height: 0px;">
-        <svg class="circular-loader" viewBox="25 25 50 50">
-            <circle class="loader-path" cx="50" cy="50" r="20" fill="none" stroke="#ffffff" stroke-width="2" />
-        </svg>
-    </div>
+</div>
+<div id="sidebarRight">
+    <a href="https://discord.gg/sami" target="_blank"><h1>Hidey Hole<br>Discord</h1></a>
+    <div id="discordMemberList"></div>
+</div>
+<div id="loadingOverlay" style="opacity: 0; width: 0px; height: 0px;">
+    <svg class="circular-loader" viewBox="25 25 50 50">
+        <circle class="loader-path" cx="50" cy="50" r="20" fill="none" stroke="#ffffff" stroke-width="2"/>
+    </svg>
+</div>
 </body>
 
 </html>

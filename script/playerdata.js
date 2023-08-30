@@ -1,4 +1,4 @@
-function getIDs(discordData, playerData) {
+function getIDs(player) {
     var idBox = document.createElement("div");
     idBox.id = "idBox";
 
@@ -10,7 +10,7 @@ function getIDs(discordData, playerData) {
     uuidBox.appendChild(uuidTitle);
 
     var uuidText = document.createElement("p");
-    uuidText.textContent = playerData.id;
+    uuidText.textContent = player.uuid;
     uuidBox.appendChild(uuidText);
     idBox.appendChild(uuidBox);
 
@@ -22,7 +22,7 @@ function getIDs(discordData, playerData) {
     dcidBox.appendChild(dcidTitle);
 
     var dcidText = document.createElement("p");
-    dcidText.textContent = discordData.id;
+    dcidText.textContent = player.discordId;
     dcidBox.appendChild(dcidText);
     idBox.appendChild(dcidBox);
 
