@@ -1,6 +1,13 @@
 #discordMemberList {
-    overflow: hidden;
+    overflow: scroll;
+    overflow-x: hidden;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;
     height: calc(100vh - 78px);
+}
+
+#discordMemberList::-webkit-scrollbar {
+    display: none;
 }
 
 #discordMemberList div {
@@ -27,9 +34,11 @@
 .discordOnline {
     color: #389d58;
 }
+
 .discordIdle {
     color: #efa119;
 }
+
 .discordDnD {
     color: #e64043;
 }
