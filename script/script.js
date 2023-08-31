@@ -110,7 +110,7 @@ function switchPlayerData(id) {
     contentBox.appendChild(playerName);
 
     var discordName = document.createElement("p");
-    discordName.textContent = curPlayerData.tag;
+    discordName.innerHTML = `<i class="fa-brands fa-discord"></i> ${curPlayerData.tag}`;
     discordName.id = "contentPlayerDiscordName";
     contentBox.appendChild(discordName);
 
